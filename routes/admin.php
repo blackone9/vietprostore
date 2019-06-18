@@ -13,7 +13,7 @@
 
 Route::get('',[
     'as' => 'admin.dashboard.index',
-    'use' => 'DashboardController@index'
+    'uses' => 'DashboardController@index'
 ]);
 
 Route::group(['prefix' => 'products'], function () {
