@@ -34,7 +34,7 @@
 										<use xlink:href="#stroked-checkmark"></use>
 									</svg>Đã thêm thành công<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 								</div>
-								<a href="addproduct.html" class="btn btn-primary">Thêm sản phẩm</a>
+								<a href="admin/products/create" class="btn btn-primary">Thêm sản phẩm</a>
 								<table class="table table-bordered" style="margin-top:20px;">
 
 									<thead>
@@ -53,7 +53,7 @@
 											<td>1</td>
 											<td>
 												<div class="row">
-													<div class="col-md-3"><img src="img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
+													<div class="col-md-3"><img src="assets/admin/img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
 													<div class="col-md-9">
 														<p><strong>Mã sản phẩm : SP01</strong></p>
 														<p>Tên sản phẩm :Áo Khoác Bomber Nỉ Xanh Lá Cây AK179</p>
@@ -76,7 +76,7 @@
 											<td>1</td>
 											<td>
 												<div class="row">
-													<div class="col-md-3"><img src="img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
+													<div class="col-md-3"><img src="assets/admin/img/ao-khoac.jpg" alt="Áo đẹp" width="100px" class="thumbnail"></div>
 													<div class="col-md-9">
 														<p><strong>Mã sản phẩm : SP01</strong></p>
 														<p>Tên sản phẩm :Áo Khoác Bomber Nỉ Xanh Lá Cây AK179</p>

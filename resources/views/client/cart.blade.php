@@ -42,7 +42,7 @@
 				<div class="product-cart">
 					<div class="one-forth">
 						<div class="product-img">
-							<img class="img-thumbnail cart-img" src="images/ao-so-mi-hoa-tiet-den-asm1223-10191.jpg">
+							<img class="img-thumbnail cart-img" src="assets/client/images/ao-so-mi-hoa-tiet-den-asm1223-10191.jpg">
 						</div>
 						<div class="detail-buy">
 							<h4>Mã : SP01</h4>
@@ -74,7 +74,7 @@
 				<div class="product-cart">
 					<div class="one-forth">
 						<div class="product-img">
-							<img class="img-thumbnail cart-img" src="images/ao-so-mi-trang-kem-asm836-8193.jpg">
+							<img class="img-thumbnail cart-img" src="assets/client/images/ao-so-mi-trang-kem-asm836-8193.jpg">
 						</div>
 						<div class="detail-buy">
 							<h4>Mã : SP01</h4>
@@ -121,7 +121,7 @@
 								</div>
 								<div class="grand-total">
 									<p><span><strong>Tổng cộng:</strong></span> <span>3.550.000 đ</span></p>
-									<a href="checkout.html" class="btn btn-primary">Thanh toán <i
+									<a href="checkout" class="btn btn-primary">Thanh toán <i
 											class="icon-arrow-right-circle"></i></a>
 								</div>
 							</div>

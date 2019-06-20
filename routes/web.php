@@ -44,7 +44,7 @@ Route::get('lien-he',[
 ]);
 
 Route::group(['prefix' => 'san-pham'], function () {
-    Route::get('{id}',[
+    Route::get('/{id}',[
         'as' => 'client.product.detail',
         'uses' => 'ProductController@detail'
     ]);

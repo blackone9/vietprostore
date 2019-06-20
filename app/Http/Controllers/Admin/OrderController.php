@@ -15,8 +15,8 @@ class OrderController extends Controller
     {
         return view('admin.order.processed');
     }
-    public function edit()
+    public function detail()
     {
-        return view('admin.order.edit');
+        return view('admin.order.detail');
     }
 }

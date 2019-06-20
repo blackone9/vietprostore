@@ -11,6 +11,17 @@
 |
 */
 
+Route::group(['prefix' => 'login'], function () {
+    Route::get('', [
+        'as' => 'admin.auth.showLoginForm',
+        'uses' => 'LoginController@showLoginForm'
+    ]);
+    Route::post('', [
+        'as' => 'admin.auth.login',
+        'uses' => 'LoginController@login'
+    ]);
+});
+
 Route::get('',[
     'as' => 'admin.dashboard.index',
     'uses' => 'DashboardController@index'
@@ -99,14 +110,14 @@ Route::group(['prefix' => 'orders'], function () {
         'uses' => 'OrderController@index'
     ]);
 
-    Route::get('processsed',[
-        'as' => 'admin.orders.index',
-        'uses' => 'OrderController@index'
+    Route::get('processed',[
+        'as' => 'admin.orders.processed',
+        'uses' => 'OrderController@processed'
     ]);
 
-    Route::get('{id}edit',[
-        'as' => 'admin.orders.edit',
-        'uses' => 'OrderController@edit'
+    Route::get('{id}/detail',[
+        'as' => 'admin.orders.detail',
+        'uses' => 'OrderController@detail'
     ]);
 
     Route::put('{id}',[

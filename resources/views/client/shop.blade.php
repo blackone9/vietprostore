@@ -7,7 +7,7 @@
 				<div class="row row-pb-lg">
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/quan-kaki-do-man-qk162-8273.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/quan-kaki-do-man-qk162-8273.jpg);">
 
 								<div class="cart">
 									<p>
@@ -27,7 +27,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/quan-kaki-nauqk178-10366.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/quan-kaki-nauqk178-10366.jpg);">
 
 								<div class="cart">
 									<p>
@@ -47,7 +47,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/quan-kaki-xam-chuot-dam-qk171-9770.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/quan-kaki-xam-chuot-dam-qk171-9770.jpg);">
 
 								<div class="cart">
 									<p>
@@ -67,7 +67,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/quan-kaki-xanh-den-qk171-9771.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/quan-kaki-xanh-den-qk171-9771.jpg);">
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="cart.html"><i
@@ -86,7 +86,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/ao-so-mi-ca-ro-xam-xanh-asm1228-10199.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/ao-so-mi-ca-ro-xam-xanh-asm1228-10199.jpg);">
 
 								<div class="cart">
 									<p>
@@ -106,7 +106,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/ao-so-mi-hoa-tiet-den-asm1223-10191.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/ao-so-mi-hoa-tiet-den-asm1223-10191.jpg);">
 
 								<div class="cart">
 									<p>
@@ -126,7 +126,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/ao-so-mi-trang-kem-asm836-8193.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/ao-so-mi-trang-kem-asm836-8193.jpg);">
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="cart.html"><i
@@ -145,7 +145,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/6ds19c007.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/6ds19c007.jpg);">
 
 								<div class="cart">
 									<p>
@@ -165,7 +165,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/ao-nu-so-mi-co-co-duc.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/ao-nu-so-mi-co-co-duc.jpg);">
 
 								<div class="cart">
 									<p>
@@ -185,7 +185,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/dam_nu_xoe_dep.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/dam_nu_xoe_dep.jpg);">
 
 								<div class="cart">
 									<p>
@@ -205,7 +205,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/Ao_nu_so_mi_cham_bi.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/Ao_nu_so_mi_cham_bi.jpg);">
 
 								<div class="cart">
 									<p>
@@ -225,7 +225,7 @@
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="product-entry">
-							<div class="product-img" style="background-image: url(images/ao-nu-phoi-vien.jpg);">
+							<div class="product-img" style="background-image: url(assets/client/images/ao-nu-phoi-vien.jpg);">
 
 								<div class="cart">
 									<p>

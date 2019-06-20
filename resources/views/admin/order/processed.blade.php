@@ -21,7 +21,7 @@
 					<div class="panel-body">
 						<div class="bootstrap-table">
 							<div class="table-responsive">
-								<a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-gift"></span>Đơn Chưa xử lý</a>
+								<a href="admin/orders" class="btn btn-warning"><span class="glyphicon glyphicon-gift"></span>Đơn Chưa xử lý</a>
 								<table class="table table-bordered" style="margin-top:20px;">				
                                     <thead>
                                         <tr class="bg-primary">
