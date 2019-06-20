@@ -24,6 +24,14 @@ Route::group(['middleware' => 'guest'], function () {
     });
 });
 
+
+Route::group(['middleware' => 'auth'], function () {
+    
+Route::post('logout', [
+    'as' => 'admin.auth.logout',
+    'uses' => 'LoginController@logout'
+]);
+
 Route::get('',[
     'as' => 'admin.dashboard.index',
     'uses' => 'DashboardController@index'
@@ -135,4 +143,8 @@ Route::resource('users', 'UserController',[
     'except' => 'show',
     'as' => 'admin'
 ]);
+
+});
+
+
 
