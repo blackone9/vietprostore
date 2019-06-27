@@ -77,4 +77,27 @@
 	</div>
 	<!--/.row-->
 </div>
+
 @endsection
+@push('js')
+	<script>
+		$(document).ready(function(){
+			$('.btn-delete').click(function(e){
+				e.preventDefault();
+				let id = $(this).attr('data-id');
+
+				$.ajax({
+					url: `/admin/categories/${id}`,
+					method: "POST",
+					data: {
+						_token: "{{ csrf_token() }}",
+						_method: "DELETE"
+					},
+					success: function(){
+						window.location.reload();
+					}
+				});
+			});
+		});
+	</script>
+@endpush
