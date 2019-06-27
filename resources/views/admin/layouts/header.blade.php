@@ -9,7 +9,8 @@
 						<li>
 							<a href="login" onclick="event.preventDefault(); 
 								document.getElementById('logout-form').submit()">
-								<svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout
+								<svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use>
+								</svg> Logout
 							</a></li>
 						</ul>
 					</li>

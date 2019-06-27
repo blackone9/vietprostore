@@ -37,8 +37,7 @@
 									<strong>{{ session()->get('success') }}</strong>
 								</div>
 							@endif
-							<form action="{{route('admin.categories.update',$category->id)}}" method="POST">
-								@method('PUT')
+							<form action="{{route('admin.categories.store')}}" method="POST">
 								@csrf
 								<div class="form-group">
 									<label for="">Danh mục cha:</label>
@@ -47,20 +46,20 @@
 										@includeWhen(true, 'admin.partials.category_options',[
 											'categories' => $categories,
 											'nth' => 0,
-											'process_id' => $category->parent_id
+											'process_id' => null
 										])
 									</select>
 								</div>
 								<div class="form-group">
 									<label for="">Tên Danh mục</label>
-									<input type="text" class="form-control" name="name"  placeholder="Tên danh mục mới" value="{{ $category->name }}">
+									<input type="text" class="form-control" name="name"  placeholder="Tên danh mục mới" value="{{ old('name') }}">
 									{{-- <div class="alert bg-danger" role="alert">
 										<svg class="glyph stroked cancel">
 											<use xlink:href="#stroked-cancel"></use>
 										</svg>Tên danh mục đã tồn tại!<a href="#" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 									</div> --}}
 								</div>
-								<button type="submit" class="btn btn-primary">Sửa danh mục</button>
+								<button type="submit" class="btn btn-primary">Thêm danh mục</button>
 							</form>
 						</div>
 					</div>
