@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
 
 
 class ProductController extends Controller
@@ -25,9 +27,22 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categories = $this->getSubcategories(0);
+        return view('admin.product.create',compact('categories'));
     }
 
+    private function getSubcategories($parent_id, $process_id=null)
+    {
+        $categories = Category::where('parent_id',$parent_id)->where('id','<>',$process_id)->get();
+        if($categories->count()){
+            $categories = $categories->map(function($category) use($process_id){
+
+                $category->sub = $this->getSubcategories($category->id,$process_id);
+                return $category;
+            });
+        }
+        return $categories;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -36,7 +51,30 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' => 'required|numeric|min:0',
+            'name' => 'required',
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0',
+            'avatar' => 'sometimes|image'
+        ]);
+
+
+        $attributes = $request->only([
+            'category_id','product_code','name','price','is_highlight','quantity','detail','description'
+        ]);
+
+        if($request->hasFile('avatar')){
+            $destinationDir = public_path('media/product');
+            $extension = $request->avatar->extension();
+            $fileName = uniqid('img').'.'.$extension;
+            $request->avatar->move($destinationDir,$fileName);
+            $attributes['avatar'] = asset('media/product/'.$fileName);
+        }
+
+        $product = Product::create($attributes);
+
+        return redirect()->route('admin.products.edit',$product->id)->with('success','Thêm sản phẩm thành công!');
     }
 
     /**
@@ -58,7 +96,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.product.edit');
+        $categories = $this->getSubcategories(0,$id);
+        $product = Product::findOrFail($id);
+        return view('admin.product.edit',compact('categories','product'));
     }
 
     /**
@@ -70,7 +110,33 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_id' => 'required|numeric|min:0',
+            'name' => 'required',
+            'price' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:0',
+            'avatar' => 'sometimes|image'
+        ]);
+
+        $product = Product::findOrFail($id);
+
+        $attributes = $request->only([
+            'category_id','product_code','name','price','is_highlight','quantity','detail','description'
+        ]);
+
+        if($request->hasFile('avatar')){
+            $destinationDir = public_path('media/product');
+            $extension = $request->avatar->extension();
+            $fileName = uniqid('img').'.'.$extension;
+            $request->avatar->move($destinationDir,$fileName);
+            $attributes['avatar'] = asset('media/product/'.$fileName);
+        }
+
+        $product->fill($attributes);
+
+        $product->save();
+
+        return redirect()->route('admin.products.edit',$product->id)->with('success','Cập nhật thành công!');
     }
 
     /**

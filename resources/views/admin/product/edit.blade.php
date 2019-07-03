@@ -13,30 +13,44 @@
             <div class="col-xs-6 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Sửa sản phẩm</div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <strong>{{ $errors->first() }}</strong>
+                        </div>
+                    @endif
+                    @if (session()->has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <strong>{{ session()->get('success') }}</strong>
+                        </div>
+                    @endif
+                    <form action="{{route('admin.products.update',$product->id)}}" method="POST">
+                        @method('PUT')
+                        @csrf
                     <div class="panel-body">
                         <div class="row" style="margin-bottom:40px">
                              
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Danh mục</label>
-                                            <select name="category" class="form-control">
-                                                <option value='1' selected>Nam</option>
-                                                <option value='3'>---|Áo khoác nam</option>
-                                                <option value='2'>Nữ</option>
-                                                <option value='4'>---|Áo khoác nữ</option>
+                                            <select name="category_id" class="form-control">
+                                                @includeWhen(true, 'admin.partials.category_options',[
+                                                    'categories' => $categories,
+                                                    'nth' => 0,
+                                                    'process_id' => $product->category_id
+                                                ])
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Mã sản phẩm</label>
-                                            <input  type="text" name="code" class="form-control" value="SP01">
+                                            <input  type="text" name="code" class="form-control" value="{{ $product->product_code }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
-                                            <input  type="text" name="name" class="form-control" value="Sản phẩm 1">
+                                            <input  type="text" name="name" class="form-control" value="{{ $product->name }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Giá sản phẩm (Giá chung)</label>
-                                            <input  type="number" name="price" class="form-control" value="150000">
+                                            <input  type="number" name="price" class="form-control" value="{{ $product->price }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Sản phẩm có nổi bật</label>
@@ -64,7 +78,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Thông tin</label>
-                                            <textarea  name="info" style="width: 100%;height: 100px;"></textarea>
+                                            <textarea  name="info" style="width: 100%;height: 100px;">{{ $product->detail }}</textarea>
                                         </div>
                                     </div>
                         </div>
@@ -72,7 +86,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Miêu tả</label>
-                                        <textarea id="editor"  name="describe" style="width: 100%;height: 100px;"></textarea>
+                                        <textarea id="editor"  name="describe" style="width: 100%;height: 100px;">{{ $product->description }}</textarea>
                                     </div>
                                     <button class="btn btn-success" name="add-product" type="submit">Sửa sản phẩm</button>
                                     <button class="btn btn-danger" type="reset">Huỷ bỏ</button>
@@ -80,6 +94,7 @@
                             </div>
                         <div class="clearfix"></div>
                     </div>
+                    </form>
                 </div>
 
             </div>

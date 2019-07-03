@@ -13,18 +13,25 @@
             <div class="col-xs-6 col-md-12 col-lg-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Thêm sản phẩm</div>
-                <form action="{{route('admin.products.store')}}" method="post">
+                    @if ($errors->any())
+                        @component('admin.partials.error')
+                            {{ $errors->first() }}
+                        @endcomponent
+                    @endif
+                <form action="{{route('admin.products.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="panel-body">
                         <div class="row" style="margin-bottom:40px">
                              
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label>Danh mục</label>
-                                            <select name="category-id" class="form-control">
-                                                <option value='1' selected>Nam</option>
-                                                <option value='3'>---|Áo khoác nam</option>
-                                                <option value='2'>Nữ</option>
-                                                <option value='4'>---|Áo khoác nữ</option>
+                                            <select name="category_id" class="form-control">
+                                                @includeWhen(true, 'admin.partials.category_options',[
+                                                    'categories' => $categories,
+                                                    'nth' => 0,
+                                                    'process_id' => null
+                                                ])
                                             </select>
                                         </div>
                                         <div class="form-group">

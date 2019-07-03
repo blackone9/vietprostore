@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function () {
             'uses' => 'ProductController@store'
         ]);
 
-        Route::get('{id}edit',[
+        Route::get('{id}/edit',[
             'as' => 'admin.products.edit',
             'uses' => 'ProductController@edit'
         ]);
