@@ -23,7 +23,7 @@
                             <strong>{{ session()->get('success') }}</strong>
                         </div>
                     @endif
-                    <form action="{{route('admin.products.update',$product->id)}}" method="POST">
+                    <form action="{{route('admin.products.update',$product->id)}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                     <div class="panel-body">
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Mã sản phẩm</label>
-                                            <input  type="text" name="code" class="form-control" value="{{ $product->product_code }}">
+                                            <input  type="text" name="product_code" class="form-control" value="{{ $product->product_code }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
@@ -54,17 +54,19 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Sản phẩm có nổi bật</label>
-                                            <select  name="featured" class="form-control">
-                                                <option value="0">Không</option>
-                                                <option selected value="1">Có</option>
+                                            <select  name="is_highlight" class="form-control">
+                                                @if($product->is_highlight == 0)
+                                                <option selected value="0">không</option>
+                                                <option value="1">có</option>
+                                                @else
+                                                <option value="0">không</option>
+                                                <option selected value="1">có</option>
+                                                @endif
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Trạng thái</label>
-                                            <select  name="state" class="form-control">
-                                                <option value="1">Còn hàng</option>
-                                                <option selected value="0">Hết hàng</option>
-                                            </select>
+                                            <label>Số lượng:</label>
+                                            <input type="number" class="form-control" value="{{ $product->quantity }}" min="0" name="quantity">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -72,13 +74,13 @@
                                             <label>Ảnh sản phẩm</label>
                                             <input id="img" type="file" name="img" class="form-control hidden"
                                                 onchange="changeImg(this)">
-                                            <img id="avatar" class="thumbnail" width="100%" height="350px" src="img/import-img.png">
+                                        <img name="avatar" id="avatar" class="thumbnail" width="100%" height="350px" src="{{asset('storage/app/product/' . $product->avatar)}}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Thông tin</label>
-                                            <textarea  name="info" style="width: 100%;height: 100px;">{{ $product->detail }}</textarea>
+                                            <textarea  name="detail" style="width: 100%;height: 100px;">{{ $product->detail }}</textarea>
                                         </div>
                                     </div>
                         </div>
@@ -105,3 +107,25 @@
     
    
 @endsection
+
+@push('js')
+    <script>
+        function changeImg(input){
+		    //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
+		    if(input.files && input.files[0]){
+		        var reader = new FileReader();
+		        //Sự kiện file đã được load vào website
+		        reader.onload = function(e){
+		            //Thay đổi đường dẫn ảnh
+		            $('#avatar').attr('src',e.target.result);
+		        }
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+		$(document).ready(function() {
+		    $('#avatar').click(function(){
+		        $('#img').click();
+		    });
+		});
+    </script>
+@endpush

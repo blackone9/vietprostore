@@ -50,7 +50,7 @@
                                             <label>Sản phẩm có nổi bật</label>
                                             <select name="is_highlight" class="form-control">
                                                 <option value="0">Không</option>
-                                                <option value="1">Có</option>
+                                                <option selected value="1">Có</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

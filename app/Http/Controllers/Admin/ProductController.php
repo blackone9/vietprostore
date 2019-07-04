@@ -17,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product.index');
+        $products = Product::with('category')->paginate(4); // lấy category ở model product, như vậy sẽ tiết kiệm đc queries
+        return view('admin.product.index',compact('products'));
     }
 
     /**
@@ -120,19 +121,27 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
 
-        $attributes = $request->only([
-            'category_id','product_code','name','price','is_highlight','quantity','detail','description'
-        ]);
+        $product->fill($request->only( 'category_id','product_code','avatar','name','price','is_highlight','quantity','detail','description'));
+
+        // $attributes = $request->only([
+        //     'category_id','product_code','name','price','is_highlight','quantity','detail','description'
+        // ]);
 
         if($request->hasFile('avatar')){
             $destinationDir = public_path('media/product');
             $extension = $request->avatar->extension();
             $fileName = uniqid('img').'.'.$extension;
             $request->avatar->move($destinationDir,$fileName);
-            $attributes['avatar'] = asset('media/product/'.$fileName);
+            $product->avatar = asset('media/product/'.$fileName);
         }
 
-        $product->fill($attributes);
+        // if ($request->hasFile('avatar')) {
+        //     $fileName = time() . $request->avatar->getClientOriginalName();
+        //     $employee->avatar = $fileName;
+        //     $request->avatar->storeAs('products', $fileName);
+        // }
+
+        // $product->fill($attributes);
 
         $product->save();
 
