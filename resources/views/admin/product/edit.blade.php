@@ -74,7 +74,7 @@
                                             <label>Ảnh sản phẩm</label>
                                             <input id="img" type="file" name="img" class="form-control hidden"
                                                 onchange="changeImg(this)">
-                                        <img name="avatar" id="avatar" class="thumbnail" width="100%" height="350px" src="{{asset('storage/app/product/' . $product->avatar)}}">
+                                        <img name="avatar" id="avatar" class="thumbnail" width="100%" height="350px" src=" {{$product->avatar??'/assets/admin/img/import-img.png'}}">
                                         </div>
                                     </div>
                                     <div class="col-md-12">

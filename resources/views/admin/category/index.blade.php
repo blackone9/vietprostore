@@ -21,14 +21,14 @@
 	<!--/.row-->
 	<div class="row">
 		<div class="col-md-12">
-			<a href="{{ route('admin.categories.create') }}" class="btn btn-success">Thêm mới</a>
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div class="row">
+					<div class="row">	
 						<div class="col-md-7">
+								<a style="margin-bottom: 15px;" href="{{ route('admin.categories.create') }}" class="btn btn-primary">Thêm mới</a>
 							<h3 style="margin: 0;"><strong>Phân cấp Menu</strong></h3>
 							<div class="vertical-menu">
-								<div class="item-menu active">Danh mục </div>
+								<div class="item-menu active" style="background: #5b778c">Danh mục </div>
 
 								@includeWhen(true,'admin.partials.category_rows',[
 									'categories'=> $categories,

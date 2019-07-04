@@ -64,8 +64,8 @@
 											</td>
 											<td>{{ $product->category->name }}</td>
 											<td>
-												<a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
-												<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
+												<a href="{{ route('admin.products.edit',$product->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+												<a href="{{ route('admin.products.destroy',$product->id) }}" class="btn btn-danger btn-destroy"><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
 											</td>
 										</tr>
 										@empty
@@ -90,3 +90,24 @@
 			<!--end main-->
 
 @endsection
+@push('js')
+	<script>
+		$(document).ready(function(){
+			$('.btn-destroy').click(function(e){
+				e.preventDefault();
+				let URL = $(this).attr('href');
+				$.ajax({
+					url: URL,
+					method: "POST",
+					data: {
+						_token: '{{csrf_token()}}',
+						_method: 'DELETE'
+					},
+					success: function(){
+						window.location.reload();
+					},
+				})
+			});
+		});
+	</script>
+@endpush
